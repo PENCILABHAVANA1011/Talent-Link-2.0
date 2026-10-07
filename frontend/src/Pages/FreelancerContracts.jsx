@@ -17,7 +17,7 @@ function FreelancerContracts() {
       try {
 
         const response = await fetch(
-          "${import.meta.env.VITE_API_URL}/api/freelancer/contracts/",
+          `${import.meta.env.VITE_API_URL}/api/freelancer/contracts/`,
           {
             method: "GET",
             headers: {
@@ -321,4 +321,5 @@ function FreelancerContracts() {
 }
 
 export default FreelancerContracts;
+
 

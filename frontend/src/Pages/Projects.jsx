@@ -13,7 +13,7 @@ function Projects() {
 
       try {
         const response = await fetch(
-          "${import.meta.env.VITE_API_URL}/api/freelancer/projects/",
+          `${import.meta.env.VITE_API_URL}/api/freelancer/projects/`,
           {
             method: "GET",
             headers: {
@@ -202,4 +202,5 @@ function Projects() {
 }
 
 export default Projects;
+
 

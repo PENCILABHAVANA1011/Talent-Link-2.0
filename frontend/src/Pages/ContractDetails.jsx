@@ -187,7 +187,7 @@ function ContractDetails() {
 
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/reviews/",
+        `${import.meta.env.VITE_API_URL}/api/reviews/`,
         {
           method: "POST",
 
@@ -999,5 +999,6 @@ function ContractDetails() {
 }
 
 export default ContractDetails;
+
 
 

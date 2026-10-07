@@ -33,7 +33,7 @@ function ProjectDetails() {
 
       try {
         const response = await fetch(
-          "${import.meta.env.VITE_API_URL}/api/freelancer/projects/",
+          `${import.meta.env.VITE_API_URL}/api/freelancer/projects/`,
           {
             method: "GET",
             headers: {
@@ -91,7 +91,7 @@ function ProjectDetails() {
 
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/proposals/",
+        `${import.meta.env.VITE_API_URL}/api/proposals/`,
         {
           method: "POST",
           headers: {
@@ -488,4 +488,5 @@ function ProjectDetails() {
 }
 
 export default ProjectDetails;
+
 

@@ -13,7 +13,7 @@ function MyProposals() {
 
       try {
         const response = await fetch(
-          "${import.meta.env.VITE_API_URL}/api/freelancer/proposals/",
+          `${import.meta.env.VITE_API_URL}/api/freelancer/proposals/`,
           {
             method: "GET",
             headers: {
@@ -225,4 +225,5 @@ function MyProposals() {
 }
 
 export default MyProposals;
+
 

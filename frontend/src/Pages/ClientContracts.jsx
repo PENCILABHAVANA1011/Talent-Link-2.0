@@ -22,7 +22,7 @@ function ClientContracts() {
 
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/client/contracts/",
+        `${import.meta.env.VITE_API_URL}/api/client/contracts/`,
         {
           method: "GET",
           headers: {
@@ -516,4 +516,5 @@ function ClientContracts() {
 }
 
 export default ClientContracts;
+
 

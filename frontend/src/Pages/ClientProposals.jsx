@@ -12,7 +12,7 @@ function ClientProposals() {
 
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/client/proposals/",
+        `${import.meta.env.VITE_API_URL}/api/client/proposals/`,
         {
           method: "GET",
           headers: {
@@ -324,4 +324,5 @@ function ClientProposals() {
 }
 
 export default ClientProposals;
+
 

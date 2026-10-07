@@ -33,7 +33,7 @@ function Profile() {
       try {
 
         const response = await fetch(
-          "${import.meta.env.VITE_API_URL}/api/profile/",
+          `${import.meta.env.VITE_API_URL}/api/profile/`,
           {
             method: "GET",
 
@@ -104,7 +104,7 @@ function Profile() {
     try {
 
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/profile/",
+        `${import.meta.env.VITE_API_URL}/api/profile/`,
         {
           method: "PUT",
 
@@ -530,4 +530,5 @@ function Profile() {
 
 
 export default Profile;
+
 

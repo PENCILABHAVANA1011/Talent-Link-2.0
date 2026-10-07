@@ -37,7 +37,7 @@ function CreateProject() {
 
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/projects/",
+        `${import.meta.env.VITE_API_URL}/api/projects/`,
         {
           method: "POST",
           headers: {
@@ -286,4 +286,5 @@ function CreateProject() {
 }
 
 export default CreateProject;
+
 
