@@ -106,3 +106,117 @@ class Proposal(models.Model):
     def __str__(self):
         return f"{self.freelancer.username} - {self.project.title}"
 
+class Contract(models.Model):
+
+    project = models.OneToOneField(
+        Project,
+        on_delete=models.CASCADE,
+        related_name='contract'
+    )
+
+    client = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='client_contracts'
+    )
+
+    freelancer = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='freelancer_contracts'
+    )
+
+    bid_amount = models.DecimalField(
+        max_digits=10,
+        decimal_places=2
+    )
+
+    duration_days = models.PositiveIntegerField()
+
+    STATUS_CHOICES = (
+        ('active', 'Active'),
+        ('completed', 'Completed'),
+        ('cancelled', 'Cancelled'),
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='active'
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return f"{self.project.title} - {self.freelancer.username}"
+
+
+
+class Review(models.Model):
+
+    contract = models.ForeignKey(
+        Contract,
+        on_delete=models.CASCADE,
+        related_name='reviews'
+    )
+
+    reviewer = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='given_reviews'
+    )
+
+    reviewee = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='received_reviews'
+    )
+
+    rating = models.PositiveIntegerField()
+
+    comment = models.TextField(blank=True)
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return f"{self.reviewer.username} → {self.reviewee.username} ({self.rating}/5)"
+
+class Message(models.Model):
+
+    contract = models.ForeignKey(
+        Contract,
+        on_delete=models.CASCADE,
+        related_name='messages'
+    )
+
+    sender = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='sent_messages'
+    )
+
+    receiver = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='received_messages'
+    )
+
+    content = models.TextField()
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    is_read = models.BooleanField(
+        default=False
+    )
+
+    def __str__(self):
+        return (
+            f"{self.sender.username} → "
+            f"{self.receiver.username}"
+        )

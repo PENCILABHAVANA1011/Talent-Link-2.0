@@ -1,6 +1,13 @@
-/* =========================
-   Global
-========================= */
+/* =========================================================
+   TALENTLINK 2.0
+   GLOBAL APP CSS
+   Dark Modern Dashboard UI
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL RESET
+========================================================= */
 
 * {
   margin: 0;
@@ -13,528 +20,1784 @@ html {
 }
 
 body {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  margin: 0;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
     sans-serif;
-  background: #f8faff;
-  color: #172033;
+
+  background: #1f2023;
+  color: #f5f5f5;
+
+  min-height: 100vh;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
+#root {
+  min-height: 100vh;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* =========================
-   Home
-========================= */
-
-.home {
-  min-height: 100vh;
-  overflow: hidden;
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
-/* =========================
-   Navbar
-========================= */
+button {
+  cursor: pointer;
+}
 
-.navbar {
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+/* =========================================================
+   2. GLOBAL FORM ELEMENTS
+========================================================= */
+
+input,
+textarea,
+select {
   width: 100%;
-  height: 76px;
-  padding: 0 7%;
+
+  background: #202124;
+  color: #ffffff;
+
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input,
+select {
+  min-height: 45px;
+  padding: 0 14px;
+}
+
+textarea {
+  padding: 12px 14px;
+  resize: vertical;
+  min-height: 110px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6f7480;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+select option {
+  background: #202124;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   3. COMMON PAGE CONTAINER
+========================================================= */
+
+.projects-page,
+.dashboard-page {
+  min-height: 100vh;
+
+  background: #1f2023;
+  color: #f5f5f5;
+}
+
+
+/* =========================================================
+   4. NAVBAR
+========================================================= */
+
+.dashboard-navbar {
+  width: 100%;
+  max-width: 970px;
+
+  min-height: 60px;
+
+  margin: 0 auto;
+
+  padding: 0 38px;
+
+  background: #111111;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid #edf0f7;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid #303030;
+
+  position: relative;
+  z-index: 10;
 }
 
+
+/* =========================================================
+   LOGO
+========================================================= */
+
 .logo {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #ffffff;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  white-space: nowrap;
 }
 
 .logo span {
-  display: inline-block;
-  margin-right: 8px;
+  color: #6366f1;
   font-size: 18px;
 }
 
-.nav-links {
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+.dashboard-nav-links {
   display: flex;
-  gap: 34px;
-  margin-left: 80px;
+  align-items: center;
+
+  gap: 28px;
 }
 
-.nav-links a {
+.dashboard-nav-links a {
+  color: #aeb2bd;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dashboard-nav-links a:hover {
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LOGOUT BUTTON
+========================================================= */
+
+.logout-btn {
+  border: none;
+
+  background: #111827;
+  color: #ffffff;
+
+  border-radius: 8px;
+
+  padding: 10px 20px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #1f2937;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   5. DASHBOARD CONTENT
+========================================================= */
+
+.dashboard-content {
+  width: 100%;
+  max-width: 970px;
+
+  margin: 0 auto;
+
+  padding: 52px 28px 70px;
+
+  min-height: calc(100vh - 60px);
+}
+
+
+/* =========================================================
+   DASHBOARD HEADER
+========================================================= */
+
+.dashboard-header {
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+.dashboard-label {
+  color: #8f96a8;
+
   font-size: 14px;
   font-weight: 600;
-  color: #596277;
-  transition: 0.25s ease;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 6px;
 }
 
-.nav-links a:hover {
-  color: #4f46e5;
-}
+.dashboard-header h1 {
+  color: #ffffff;
 
-.nav-buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+  font-size: 34px;
+  line-height: 1.2;
 
-.login-btn,
-.signup-btn {
-  border: none;
-  padding: 11px 20px;
-  border-radius: 10px;
-  font-size: 14px;
   font-weight: 700;
-  transition: 0.25s ease;
+
+  margin-bottom: 8px;
 }
 
-.login-btn {
-  background: transparent;
-  color: #30384d;
+.dashboard-header p {
+  color: #9297a5;
+
+  font-size: 15px;
+
+  line-height: 1.6;
 }
 
-.login-btn:hover {
-  background: #f0f2ff;
+
+/* =========================================================
+   6. DASHBOARD CARD GRID
+========================================================= */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  width: 100%;
 }
 
-.signup-btn {
-  background: #4f46e5;
-  color: white;
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
-}
 
-.signup-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
-}
+/* =========================================================
+   DASHBOARD CARD
+========================================================= */
 
-/* =========================
-   Hero
-========================= */
+.dashboard-card {
+  min-height: 250px;
 
-.hero-section {
-  min-height: 650px;
-  padding: 85px 7%;
+  padding: 26px 24px;
+
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 15px;
+
   display: flex;
+  flex-direction: column;
+
   align-items: center;
   justify-content: space-between;
-  gap: 70px;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.12), transparent 28%),
-    linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
-}
 
-.hero-content {
-  max-width: 650px;
-}
-
-.badge {
-  display: inline-block;
-  padding: 9px 15px;
-  border-radius: 30px;
-  background: #e8e9ff;
-  color: #4f46e5;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-
-.hero-content h1 {
-  font-size: clamp(48px, 6vw, 76px);
-  line-height: 1.05;
-  letter-spacing: -3px;
-  font-weight: 850;
-  color: #141a2a;
-}
-
-.hero-content h1 span {
-  display: block;
-  color: #4f46e5;
-}
-
-.hero-content > p {
-  max-width: 570px;
-  margin-top: 25px;
-  color: #667085;
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  margin-top: 32px;
-}
-
-.primary-btn,
-.secondary-btn {
-  border: none;
-  border-radius: 12px;
-  padding: 14px 23px;
-  font-size: 15px;
-  font-weight: 750;
-  transition: 0.25s ease;
-}
-
-.primary-btn {
-  background: #4f46e5;
-  color: white;
-  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.24);
-}
-
-.primary-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(79, 70, 229, 0.32);
-}
-
-.secondary-btn {
-  background: white;
-  color: #30384d;
-  border: 1px solid #dfe3ee;
-}
-
-.secondary-btn:hover {
-  transform: translateY(-3px);
-  border-color: #a8a9f5;
-}
-
-/* =========================
-   Stats
-========================= */
-
-.stats {
-  display: flex;
-  gap: 45px;
-  margin-top: 45px;
-}
-
-.stats h3 {
-  font-size: 24px;
-  color: #20263a;
-}
-
-.stats p {
-  margin-top: 5px;
-  font-size: 13px;
-  color: #7b8498;
-}
-
-/* =========================
-   Hero Visual
-========================= */
-
-.hero-card {
-  width: 430px;
-  height: 430px;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.main-card {
-  width: 330px;
-  min-height: 330px;
-  position: absolute;
-  top: 50px;
-  left: 45px;
-  padding: 45px 35px;
-  border-radius: 30px;
-  background: white;
-  border: 1px solid #e4e7f1;
-  box-shadow: 0 30px 70px rgba(40, 48, 90, 0.14);
   text-align: center;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.profile-circle {
-  width: 82px;
-  height: 82px;
-  margin: 0 auto 22px;
+.dashboard-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #555555;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =========================================================
+   DASHBOARD ICON
+========================================================= */
+
+.dashboard-icon {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 10px;
+
+  background: #20232d;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: #eef0ff;
-  font-size: 38px;
+
+  font-size: 21px;
+
+  margin-bottom: 15px;
 }
 
-.main-card h3 {
-  font-size: 23px;
-  margin-bottom: 12px;
+
+/* =========================================================
+   DASHBOARD CARD TEXT
+========================================================= */
+
+.dashboard-card h2 {
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  margin-bottom: 8px;
 }
 
-.main-card p {
-  color: #727b8f;
-  line-height: 1.6;
+.dashboard-card p {
+  max-width: 240px;
+
+  color: #9297a5;
+
   font-size: 14px;
-}
 
-.project-status {
-  margin-top: 25px;
-  padding: 11px;
-  border-radius: 10px;
-  background: #f1fdf7;
-  color: #16855a;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.project-status span {
-  margin-right: 5px;
-}
-
-.floating-card {
-  position: absolute;
-  padding: 14px 18px;
-  background: white;
-  border: 1px solid #e5e8f1;
-  border-radius: 13px;
-  box-shadow: 0 15px 35px rgba(30, 40, 80, 0.12);
-  font-size: 12px;
-  font-weight: 750;
-  z-index: 2;
-}
-
-.top-card {
-  top: 5px;
-  right: 0;
-}
-
-.bottom-card {
-  bottom: 15px;
-  left: 0;
-  color: #16855a;
-}
-
-/* =========================
-   How It Works
-========================= */
-
-.how-section {
-  padding: 110px 7%;
-  background: white;
-}
-
-.section-heading {
-  text-align: center;
-  max-width: 650px;
-  margin: 0 auto 65px;
-}
-
-.section-heading > span {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #4f46e5;
-}
-
-.section-heading h2 {
-  margin-top: 12px;
-  font-size: 42px;
-  letter-spacing: -1.5px;
-}
-
-.section-heading p {
-  margin-top: 14px;
-  color: #737d91;
   line-height: 1.6;
+
+  margin-bottom: 20px;
 }
 
-.steps {
-  max-width: 1100px;
-  margin: auto;
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
+
+.card-button,
+.project-button {
+  width: 100%;
+
+  min-height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+
+  background: #6366f1;
+
+  border: none;
+  border-radius: 7px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card-button:hover,
+.project-button:hover {
+  background: #5558e8;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 15px rgba(99, 102, 241, 0.25);
+}
+
+
+/* =========================================================
+   7. DASHBOARD ACTION SECTION
+========================================================= */
+
+.dashboard-actions {
+  margin-top: 42px;
+
+  padding: 30px 24px;
+
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 15px;
+}
+
+.dashboard-actions h2 {
+  text-align: center;
+
+  color: #ffffff;
+
+  font-size: 19px;
+
+  margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   ACTION GRID
+========================================================= */
+
+.action-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+
+  gap: 14px;
 }
 
-.step-card {
-  padding: 35px;
-  border: 1px solid #e9ebf2;
-  border-radius: 20px;
-  background: #ffffff;
-  transition: 0.3s ease;
+
+/* =========================================================
+   ACTION CARD
+========================================================= */
+
+.action-card {
+  padding: 18px;
+
+  background: #202124;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 11px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.step-card:hover {
-  transform: translateY(-7px);
-  border-color: #c8c8fa;
-  box-shadow: 0 18px 40px rgba(35, 43, 80, 0.09);
+.action-card:hover {
+  background: #27282c;
+
+  border-color: #505050;
 }
 
-.step-number {
-  color: #4f46e5;
+.action-card-icon {
+  font-size: 22px;
+}
+
+.action-card h3 {
+  color: #ffffff;
+
   font-size: 14px;
-  font-weight: 800;
-  margin-bottom: 22px;
+
+  margin-bottom: 5px;
 }
 
-.step-card h3 {
-  font-size: 20px;
-  margin-bottom: 12px;
+.action-card p {
+  color: #9297a5;
+
+  font-size: 12px;
+
+  line-height: 1.5;
 }
 
-.step-card p {
-  color: #747d91;
-  font-size: 14px;
-  line-height: 1.7;
+
+/* =========================================================
+   8. PROJECTS PAGE
+========================================================= */
+
+.projects-content {
+  width: 100%;
+  max-width: 970px;
+
+  margin: 0 auto;
+
+  padding: 55px 28px 70px;
+
+  min-height: calc(100vh - 60px);
 }
 
-/* =========================
-   CTA
-========================= */
 
-.cta-section {
-  margin: 40px 7% 90px;
-  padding: 75px 30px;
+/* =========================================================
+   PROJECT HEADER
+========================================================= */
+
+.projects-header {
   text-align: center;
-  border-radius: 28px;
-  background: #171c35;
-  color: white;
+
+  margin-bottom: 42px;
 }
 
-.cta-section h2 {
-  font-size: 40px;
-  letter-spacing: -1px;
+.projects-header h1 {
+  color: #ffffff;
+
+  font-size: 34px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  margin-bottom: 8px;
 }
 
-.cta-section p {
-  margin: 15px 0 28px;
-  color: #c5c9d8;
+.projects-header p:not(.dashboard-label) {
+  color: #9fa4b2;
+
+  font-size: 15px;
+
+  line-height: 1.6;
 }
 
-.cta-section .primary-btn {
-  background: white;
-  color: #4f46e5;
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.projects-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
 }
 
-/* =========================
-   Footer
-========================= */
 
-.footer {
-  padding: 45px 7%;
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+.project-card {
+  padding: 26px;
+
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #4f4f4f;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   PROJECT CARD TOP
+========================================================= */
+
+.project-card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
-  background: #101426;
-  color: white;
+
+  margin-bottom: 22px;
 }
 
-.footer h3 {
+.project-status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background: rgba(16, 185, 129, 0.12);
+
+  color: #10b981;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.project-budget {
+  color: #8b83ff;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.project-card h2 {
+  color: #ffffff;
+
+  font-size: 20px;
+
+  margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   PROJECT DESCRIPTION
+========================================================= */
+
+.project-description {
+  color: #aeb2bd;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   PROJECT DATE
+========================================================= */
+
+.project-date {
+  color: #777d89;
+
+  font-size: 12px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   PROJECT BUTTON
+========================================================= */
+
+.project-button {
+  width: 100%;
+}
+
+
+/* =========================================================
+   9. PROJECT INFORMATION
+========================================================= */
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0;
+
+  margin-top: 20px;
+}
+
+.project-info span {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 13px 0;
+
+  color: #aeb2bd;
+
+  font-size: 14px;
+
+  border-bottom: 1px solid #292929;
+}
+
+.project-info strong {
+  color: #ffffff;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   10. EMPTY / LOADING / ERROR
+========================================================= */
+
+.projects-message {
+  padding: 30px;
+
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  color: #b0b4be;
+}
+
+.projects-message h2 {
+  color: #ffffff;
+
+  margin-bottom: 10px;
+
   font-size: 20px;
 }
 
-.footer p {
-  margin-top: 7px;
-  color: #9ca3b5;
+.projects-message p {
+  color: #9297a5;
+
+  font-size: 14px;
+}
+
+.loading {
+  min-height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #999999;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   11. AUTH PAGE
+========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+
+  background: #1f2023;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+}
+
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+
+  padding: 40px;
+
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   AUTH LOGO
+========================================================= */
+
+.auth-logo {
+  text-align: center;
+
+  color: #ffffff;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   AUTH TITLE
+========================================================= */
+
+.auth-card h1 {
+  text-align: center;
+
+  color: #ffffff;
+
+  font-size: 28px;
+
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  text-align: center;
+
+  color: #9297a5;
+
+  font-size: 14px;
+
+  margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   AUTH FORM
+========================================================= */
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.auth-card label {
+  color: #dddddd;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  margin-top: 8px;
+}
+
+.auth-card input,
+.auth-card textarea,
+.auth-card select {
+  width: 100%;
+}
+
+
+/* =========================================================
+   AUTH BUTTON
+========================================================= */
+
+.auth-button {
+  width: 100%;
+
+  min-height: 45px;
+
+  margin-top: 18px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #6366f1;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.auth-button:hover {
+  background: #5558e8;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 15px rgba(99, 102, 241, 0.25);
+}
+
+
+/* =========================================================
+   AUTH FOOTER
+========================================================= */
+
+.auth-footer {
+  text-align: center;
+
+  color: #888d99;
+
   font-size: 13px;
+
+  margin-top: 24px;
 }
 
-/* =========================
-   Responsive Design
-========================= */
+.auth-footer a,
+.auth-footer span {
+  color: #7c7ff5;
 
-@media (max-width: 950px) {
-  .nav-links {
-    display: none;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.auth-footer a:hover,
+.auth-footer span:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   12. PROPOSALS
+========================================================= */
+
+.proposals-page,
+.contracts-page,
+.profile-page,
+.details-page {
+  min-height: 100vh;
+
+  background: #1f2023;
+  color: #f5f5f5;
+}
+
+.proposals-content,
+.contracts-content,
+.profile-content,
+.details-content {
+  width: 100%;
+  max-width: 970px;
+
+  margin: 0 auto;
+
+  padding: 55px 28px 70px;
+}
+
+
+/* =========================================================
+   PROPOSAL GRID
+========================================================= */
+
+.proposals-grid,
+.contracts-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   PROPOSAL CARD
+========================================================= */
+
+.proposal-card {
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 15px;
+
+  padding: 24px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.proposal-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #505050;
+}
+
+.proposal-card h2 {
+  color: #ffffff;
+
+  font-size: 19px;
+
+  margin-bottom: 15px;
+}
+
+.proposal-card p {
+  color: #aeb2bd;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   PROPOSAL STATUS
+========================================================= */
+
+.proposal-status {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-bottom: 15px;
+}
+
+.proposal-status.accepted {
+  color: #34d399;
+
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.proposal-status.rejected {
+  color: #f87171;
+
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.proposal-status.pending {
+  color: #fbbf24;
+
+  background: rgba(245, 158, 11, 0.12);
+}
+
+
+/* =========================================================
+   PROPOSAL ACCEPTED
+========================================================= */
+
+.proposal-accepted {
+  background: rgba(16, 185, 129, 0.10);
+
+  border: 1px solid rgba(16, 185, 129, 0.25);
+
+  color: #34d399;
+
+  border-radius: 8px;
+
+  padding: 12px 15px;
+
+  text-align: center;
+
+  margin-top: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PROPOSAL REJECTED
+========================================================= */
+
+.proposal-rejected {
+  background: rgba(239, 68, 68, 0.10);
+
+  border: 1px solid rgba(239, 68, 68, 0.25);
+
+  color: #f87171;
+
+  border-radius: 8px;
+
+  padding: 12px 15px;
+
+  text-align: center;
+
+  margin-top: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   13. CONTRACTS
+========================================================= */
+
+.contract-card {
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 15px;
+
+  padding: 25px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contract-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #505050;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.20);
+}
+
+.contract-card h2 {
+  color: #ffffff;
+
+  font-size: 20px;
+
+  margin-bottom: 15px;
+}
+
+.contract-card p {
+  color: #aeb2bd;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   CONTRACT STATUS
+========================================================= */
+
+.contract-status {
+  display: inline-flex;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background: rgba(99, 102, 241, 0.12);
+
+  color: #8b83ff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-bottom: 15px;
+}
+
+.contract-status.completed {
+  background: rgba(16, 185, 129, 0.12);
+
+  color: #34d399;
+}
+
+
+/* =========================================================
+   CONTRACT DETAILS BOX
+========================================================= */
+
+.contract-details-box {
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 16px;
+
+  padding: 28px;
+
+  margin-bottom: 25px;
+}
+
+.contract-details-box h2 {
+  color: #ffffff;
+
+  font-size: 22px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   CONTRACT INFORMATION
+========================================================= */
+
+.contract-info {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.contract-info-item {
+  background: #202124;
+
+  border: 1px solid #343434;
+
+  border-radius: 9px;
+
+  padding: 14px;
+}
+
+.contract-info-item span {
+  display: block;
+
+  color: #777d89;
+
+  font-size: 12px;
+
+  margin-bottom: 5px;
+}
+
+.contract-info-item strong {
+  color: #ffffff;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   14. MESSAGES / CHAT
+========================================================= */
+
+.message-box {
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 14px;
+
+  padding: 20px;
+
+  margin-top: 20px;
+}
+
+.message-box h2 {
+  color: #ffffff;
+
+  font-size: 20px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   MESSAGE ITEM
+========================================================= */
+
+.message-item {
+  background: #1d1e21;
+
+  border: 1px solid #363636;
+
+  border-radius: 12px;
+
+  padding: 16px;
+
+  margin-bottom: 12px;
+}
+
+.message-item:last-child {
+  margin-bottom: 0;
+}
+
+.message-sender {
+  color: #ffffff;
+
+  font-weight: 600;
+
+  margin-bottom: 6px;
+}
+
+.message-content {
+  color: #d1d1d1;
+
+  line-height: 1.6;
+
+  margin-bottom: 8px;
+}
+
+.message-time {
+  color: #777d89;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MESSAGE INPUT AREA
+========================================================= */
+
+.message-form {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.message-form input {
+  flex: 1;
+}
+
+.message-form button {
+  min-width: 100px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #6366f1;
+
+  color: #ffffff;
+
+  font-weight: 600;
+}
+
+.message-form button:hover {
+  background: #5558e8;
+}
+
+
+/* =========================================================
+   15. REVIEWS
+========================================================= */
+
+.review-card {
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 13px;
+
+  padding: 20px;
+
+  margin-top: 15px;
+}
+
+.review-card h3 {
+  color: #ffffff;
+
+  font-size: 16px;
+
+  margin-bottom: 8px;
+}
+
+.review-stars {
+  color: #fbbf24;
+
+  font-size: 18px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+.review-card p {
+  color: #d0d0d0;
+
+  line-height: 1.6;
+}
+
+.review-card small {
+  display: block;
+
+  color: #777d89;
+
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   REVIEW FORM
+========================================================= */
+
+.review-form {
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 14px;
+
+  padding: 22px;
+
+  margin-top: 20px;
+}
+
+.review-form label {
+  display: block;
+
+  color: #dddddd;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  margin-bottom: 8px;
+}
+
+.review-form select,
+.review-form textarea {
+  margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   16. PROFILE
+========================================================= */
+
+.profile-card {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  background: #111111;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 16px;
+
+  padding: 30px;
+}
+
+.profile-card h2 {
+  color: #ffffff;
+
+  font-size: 22px;
+
+  margin-bottom: 20px;
+}
+
+.profile-field {
+  margin-bottom: 18px;
+}
+
+.profile-field label {
+  display: block;
+
+  color: #dddddd;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   PROFILE RATING
+========================================================= */
+
+.profile-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+.profile-rating-stars {
+  color: #fbbf24;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   17. SUCCESS / ERROR MESSAGES
+========================================================= */
+
+.error-message {
+  background: rgba(239, 68, 68, 0.10);
+
+  border: 1px solid rgba(239, 68, 68, 0.35);
+
+  color: #f87171;
+
+  border-radius: 9px;
+
+  padding: 12px 15px;
+
+  margin-top: 15px;
+
+  font-size: 14px;
+}
+
+.success-message {
+  background: rgba(16, 185, 129, 0.10);
+
+  border: 1px solid rgba(16, 185, 129, 0.35);
+
+  color: #34d399;
+
+  border-radius: 9px;
+
+  padding: 12px 15px;
+
+  margin-top: 15px;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   18. COMMON BUTTONS
+========================================================= */
+
+.primary-button {
+  min-height: 44px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #6366f1;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #5558e8;
+
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  min-height: 44px;
+
+  padding: 0 20px;
+
+  border: 1px solid #3d3d3d;
+
+  border-radius: 8px;
+
+  background: #202124;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: #292a2e;
+
+  border-color: #555555;
+}
+
+.danger-button {
+  min-height: 44px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #7f1d1d;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.danger-button:hover {
+  background: #991b1b;
+}
+
+
+/* =========================================================
+   19. GENERAL PAGE HEADER
+========================================================= */
+
+.page-header {
+  text-align: center;
+
+  margin-bottom: 35px;
+}
+
+.page-header h1 {
+  color: #ffffff;
+
+  font-size: 32px;
+
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  color: #9297a5;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   20. MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .dashboard-navbar {
+    padding: 0 24px;
   }
 
-  .hero-section {
-    padding-top: 65px;
-    flex-direction: column;
-    text-align: center;
+  .dashboard-nav-links {
+    gap: 15px;
   }
 
-  .hero-content {
-    max-width: 750px;
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero-content > p {
-    margin-left: auto;
-    margin-right: auto;
+  .action-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero-buttons,
-  .stats {
-    justify-content: center;
-  }
-
-  .hero-card {
-    margin-top: 25px;
-  }
-
-  .steps {
+  .projects-grid,
+  .proposals-grid,
+  .contracts-grid {
     grid-template-columns: 1fr;
-    max-width: 600px;
   }
 }
 
-@media (max-width: 600px) {
-  .navbar {
-    padding: 0 5%;
+
+/* =========================================================
+   21. MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .dashboard-navbar {
+    min-height: auto;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 18px 20px;
   }
 
-  .signup-btn {
-    padding: 10px 14px;
+  .dashboard-nav-links {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px 18px;
   }
 
-  .hero-section {
-    padding: 60px 5%;
+  .dashboard-content,
+  .projects-content,
+  .proposals-content,
+  .contracts-content,
+  .profile-content,
+  .details-content {
+    padding: 40px 18px 55px;
   }
 
-  .hero-content h1 {
-    font-size: 45px;
-    letter-spacing: -2px;
+  .dashboard-header h1,
+  .projects-header h1 {
+    font-size: 27px;
   }
 
-  .hero-content > p {
-    font-size: 16px;
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-buttons {
+  .action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid,
+  .proposals-grid,
+  .contracts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card,
+  .proposal-card,
+  .contract-card {
+    padding: 20px;
+  }
+
+  .contract-info {
+    grid-template-columns: 1fr;
+  }
+
+  .message-form {
     flex-direction: column;
   }
 
-  .stats {
-    gap: 25px;
+  .message-form button {
+    width: 100%;
   }
 
-  .hero-card {
-    width: 340px;
-    transform: scale(0.88);
-    margin-left: -10px;
-    margin-right: -10px;
+  .auth-card {
+    padding: 28px 22px;
+  }
+}
+
+
+/* =========================================================
+   22. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .dashboard-header h1,
+  .projects-header h1 {
+    font-size: 24px;
   }
 
-  .section-heading h2 {
-    font-size: 34px;
+  .dashboard-label {
+    font-size: 12px;
   }
 
-  .cta-section {
-    margin-left: 5%;
-    margin-right: 5%;
+  .dashboard-nav-links a {
+    font-size: 12px;
   }
 
-  .cta-section h2 {
-    font-size: 31px;
+  .logo {
+    font-size: 19px;
   }
 
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
+  .dashboard-card {
+    min-height: 230px;
+
+    padding: 22px 20px;
+  }
+
+  .card-button {
+    width: 100%;
+  }
+
+  .auth-card {
+    padding: 25px 18px;
   }
 }

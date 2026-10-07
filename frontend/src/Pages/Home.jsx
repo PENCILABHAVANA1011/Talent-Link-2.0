@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className="home">
@@ -14,8 +15,12 @@ function Home() {
         </div>
 
         <div className="nav-buttons">
-          <button className="login-btn">Login</button>
-          <button className="signup-btn">Get Started</button>
+          <Link to="/login" className="login-btn">
+           Login
+          </Link>
+          <Link to="/login" className="signup-btn">
+             Get Started
+          </Link>
         </div>
       </nav>
 
