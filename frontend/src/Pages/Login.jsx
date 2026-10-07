@@ -13,7 +13,7 @@ function Login() {
     try {
       // Step 1: Login
       const loginResponse = await fetch(
-        "http://127.0.0.1:8000/api/login/",
+        "${import.meta.env.VITE_API_URL}/api/login/",
         {
           method: "POST",
           headers: {
@@ -40,7 +40,7 @@ function Login() {
 
       // Step 3: Get logged-in user's profile
       const profileResponse = await fetch(
-        "http://127.0.0.1:8000/api/profile/",
+        "${import.meta.env.VITE_API_URL}/api/profile/",
         {
           method: "GET",
           headers: {
@@ -132,3 +132,4 @@ function Login() {
 }
 
 export default Login;
+

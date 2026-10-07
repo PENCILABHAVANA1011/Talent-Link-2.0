@@ -25,7 +25,7 @@ function ClientProjects() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/projects/",
+        "${import.meta.env.VITE_API_URL}/api/projects/",
         {
           method: "GET",
           headers: {
@@ -75,7 +75,7 @@ function ClientProjects() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/projects/",
+        "${import.meta.env.VITE_API_URL}/api/projects/",
         {
           method: "POST",
           headers: {
@@ -479,3 +479,4 @@ function ClientProjects() {
 }
 
 export default ClientProjects;
+

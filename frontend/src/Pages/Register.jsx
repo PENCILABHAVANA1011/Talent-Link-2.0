@@ -13,7 +13,7 @@ function Register() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/register/",
+        "${import.meta.env.VITE_API_URL}/api/register/",
         {
           method: "POST",
           headers: {
@@ -170,3 +170,4 @@ function Register() {
 }
 
 export default Register;
+

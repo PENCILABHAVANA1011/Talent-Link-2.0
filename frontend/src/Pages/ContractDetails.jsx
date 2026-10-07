@@ -44,7 +44,7 @@ function ContractDetails() {
     const fetchContract = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/api/contracts/${id}/`,
+          `${import.meta.env.VITE_API_URL}/api/contracts/${id}/`,
           {
             method: "GET",
             headers: {
@@ -92,7 +92,7 @@ function ContractDetails() {
     const fetchReviews = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/api/contracts/${id}/reviews/`,
+          `${import.meta.env.VITE_API_URL}/api/contracts/${id}/reviews/`,
           {
             method: "GET",
             headers: {
@@ -137,7 +137,7 @@ function ContractDetails() {
     const fetchMessages = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/api/contracts/${id}/messages/`,
+          `${import.meta.env.VITE_API_URL}/api/contracts/${id}/messages/`,
           {
             method: "GET",
             headers: {
@@ -187,7 +187,7 @@ function ContractDetails() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/reviews/",
+        "${import.meta.env.VITE_API_URL}/api/reviews/",
         {
           method: "POST",
 
@@ -254,7 +254,7 @@ function ContractDetails() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/contracts/${id}/messages/`,
+        `${import.meta.env.VITE_API_URL}/api/contracts/${id}/messages/`,
         {
           method: "POST",
 
@@ -999,4 +999,5 @@ function ContractDetails() {
 }
 
 export default ContractDetails;
+
 

@@ -17,7 +17,7 @@ function FreelancerContracts() {
       try {
 
         const response = await fetch(
-          "http://127.0.0.1:8000/api/freelancer/contracts/",
+          "${import.meta.env.VITE_API_URL}/api/freelancer/contracts/",
           {
             method: "GET",
             headers: {
@@ -321,3 +321,4 @@ function FreelancerContracts() {
 }
 
 export default FreelancerContracts;
+

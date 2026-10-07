@@ -37,7 +37,7 @@ function CreateProject() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/projects/",
+        "${import.meta.env.VITE_API_URL}/api/projects/",
         {
           method: "POST",
           headers: {
@@ -286,3 +286,4 @@ function CreateProject() {
 }
 
 export default CreateProject;
+

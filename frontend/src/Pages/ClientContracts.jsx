@@ -22,7 +22,7 @@ function ClientContracts() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/client/contracts/",
+        "${import.meta.env.VITE_API_URL}/api/client/contracts/",
         {
           method: "GET",
           headers: {
@@ -87,7 +87,7 @@ function ClientContracts() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/contracts/${contractId}/status/`,
+        `${import.meta.env.VITE_API_URL}/api/contracts/${contractId}/status/`,
         {
           method: "PATCH",
 
@@ -516,3 +516,4 @@ function ClientContracts() {
 }
 
 export default ClientContracts;
+
