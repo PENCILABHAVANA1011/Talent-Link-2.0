@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import "../App.css";
 
 function ClientProjects() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
 
   const [title, setTitle] = useState("");
@@ -136,8 +137,7 @@ function ClientProjects() {
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
-
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   /* =========================
